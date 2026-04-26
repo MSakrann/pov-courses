@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(uuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  lang         String    @default("ar")
+  createdAt    DateTime  @default(now())
+  purchase     Purchase?
+}
+
+model Purchase {
+  id             String   @id @default(uuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kashierOrderId String
+  status         String   @default("pending") // pending | active | expired
+  expiresAt      DateTime
+  createdAt      DateTime @default(now())
+
+  @@index([kashierOrderId])
+}
+
+model Module {
+  id       String   @id @default(uuid())
+  title_ar String
+  title_en String
+  order    Int
+  lessons  Lesson[]
+}
+
+model Lesson {
+  id       String  @id @default(uuid())
+  moduleId String
+  module   Module  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title_ar String
+  title_en String
+  type     String // "video" | "images"
+  order    Int
+  vdoId    String?
+  images   Image[]
+
+  @@index([moduleId])
+}
+
+model Image {
+  id       String @id @default(uuid())
+  lessonId String
+  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  filename String
+  order    Int
+
+  @@index([lessonId])
+}

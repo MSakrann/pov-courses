@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "14-Day Smartphone Filmmaker — Get Access",
+    "description": "Master smartphone filmmaking and editing in 14 days. Lifetime access, bilingual Arabic & English."
+  },
+  "common": {
+    "brand": "Pov Studio",
+    "getAccess": "Get Access Today!",
+    "login": "Login",
+    "register": "Create account"
+  },
+  "nav": {
+    "home": "Home",
+    "course": "Course",
+    "checkout": "Checkout"
+  },
+  "landing": {
+    "topBar": "🔥 <highlight>Limited time sale</highlight>— full bundle at a special price.",
+    "heroH1": "Master Smartphone Filmmaking & Editing",
+    "heroSubPrefix": "Spring Sale Bonuses:",
+    "heroSubRest": "Master Youtube, Viral Editing, Profitable Scriptwriting, and more!",
+    "heroFor": "For anyone who wants to shoot cinematic, emotional video on a phone—without months of random tutorials.",
+    "heroSale": "Get 5 additional programs at no extra cost with this launch bundle.",
+    "heroExpires": "Offer ends soon. Secure your seat while this page is open.",
+    "normalPrice": "Normal price",
+    "yourPrice": "Your price",
+    "currency": "USD",
+    "countdownTitle": "Offer countdown",
+    "socialProof": "Trusted by {count}+ content creators",
+    "bundle": {
+      "title": "Introducing {brand}",
+      "bigSale": "HUGE {season} SALE BUNDLE",
+      "season": "Spring",
+      "today": "Today",
+      "valueBadge": "VALUE {amount}"
+    },
+    "courseBlock": {
+      "label": "Course #1:",
+      "courseName": "14-Day Smartphone Filmmaker",
+      "whatYouLearn": "Here's what you will learn"
+    },
+    "midCta": "Claim this deal for only {price}",
+    "testimonialsH2": "What some of our <count>152,000+</count> students have to say",
+    "footerCta": "Get lifetime access — {price}",
+    "footer": {
+      "copy": "© {year} {brand}. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms"
+    }
+  },
+  "curriculum": {
+    "dayLabel": "Day {n}:"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "confirmPassword": "Confirm password",
+    "loginTitle": "Welcome back",
+    "registerTitle": "Create your account",
+    "submitLogin": "Login",
+    "submitRegister": "Register",
+    "toRegister": "No account? Register",
+    "toLogin": "Already have an account? Login",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "summary": "Order summary",
+    "courseName": "14-Day Smartphone Filmmaker + bonuses",
+    "included": "What's included",
+    "included1": "Full course: 14 days of structured lessons",
+    "included2": "Templates and community access (as published)",
+    "included3": "Lifetime access for the access window defined at purchase",
+    "pay": "Pay with Kashier",
+    "kashierNote": "Kashier opens in a secure flow. We store a pending order when you start payment.",
+    "initError": "Could not start checkout. Try again."
+  },
+  "course": {
+    "title": "Your course",
+    "modules": "Modules",
+    "selectLesson": "Select a lesson to begin.",
+    "videoLoading": "Loading player…",
+    "images": "Lesson images"
+  }
+}

@@ -9,8 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          red: "#E8341C",
+          green: "#4CAF50",
+          navy: "#2D3E50",
+          gray: "#F5F5F5",
+        },
+        ink: "#1A1A1A",
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        arabic: ["var(--font-cairo)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },

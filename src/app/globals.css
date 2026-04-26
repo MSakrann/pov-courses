@@ -4,24 +4,19 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[dir="rtl"] body {
+  font-family: var(--font-cairo), system-ui, sans-serif;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+html[dir="ltr"] body {
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.protected-lesson-image {
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
