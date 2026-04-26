@@ -33,7 +33,7 @@ model Module {
   id       String   @id @default(uuid())
   title_ar String
   title_en String
-  order    Int
+  order    Int      @unique
   lessons  Lesson[]
 }
 
@@ -49,6 +49,7 @@ model Lesson {
   images   Image[]
 
   @@index([moduleId])
+  @@unique([moduleId, order])
 }
 
 model Image {
@@ -59,4 +60,5 @@ model Image {
   order    Int
 
   @@index([lessonId])
+  @@unique([lessonId, order])
 }

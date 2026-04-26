@@ -1,26 +1,37 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
-const redis =
-  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
-    ? new Redis({
-        url: process.env.UPSTASH_REDIS_REST_URL,
-        token: process.env.UPSTASH_REDIS_REST_TOKEN,
-      })
-    : null;
+const upstashUrl = process.env.UPSTASH_REDIS_REST_URL?.trim();
+const upstashToken = process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
 
-export const loginRatelimit = redis
-  ? new Ratelimit({
+let loginRatelimit: Ratelimit | null = null;
+
+if (upstashUrl && upstashToken) {
+  try {
+    const redis = new Redis({
+      url: upstashUrl,
+      token: upstashToken,
+    });
+    loginRatelimit = new Ratelimit({
       redis,
       limiter: Ratelimit.slidingWindow(5, "15 m"),
       analytics: true,
       prefix: "rl:login",
-    })
-  : null;
+    });
+  } catch {
+    // Optional dependency: if Upstash isn't configured/available, allow login requests through.
+    loginRatelimit = null;
+  }
+}
 
 export async function limitLoginRequest(ip: string) {
   if (!loginRatelimit) {
     return { success: true as const, remaining: 999 };
   }
-  return loginRatelimit.limit(ip);
+  try {
+    return await loginRatelimit.limit(ip);
+  } catch {
+    // Fail open if Upstash is unreachable/misconfigured.
+    return { success: true as const, remaining: 999 };
+  }
 }
