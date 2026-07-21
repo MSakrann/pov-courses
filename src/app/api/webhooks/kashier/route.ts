@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 import { verifyKashierSignature } from "@/lib/kashier-signature";
-import { getAccessDays } from "@/lib/constants";
+import { activatePurchaseByOrderId } from "@/lib/activate-purchase";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -43,6 +42,7 @@ function isSuccessfulPayment(obj: unknown): boolean {
   return false;
 }
 
+/** Kashier server-to-server webhook only. Browser redirects must use /api/checkout/kashier-return. */
 export async function POST(request: NextRequest) {
   const raw = await request.text();
   const secret = process.env.KASHIER_WEBHOOK_SECRET;
@@ -69,21 +69,20 @@ export async function POST(request: NextRequest) {
   if (!orderId) {
     return NextResponse.json({ error: "order id missing" }, { status: 400 });
   }
-  const purchase = await prisma.purchase.findFirst({
-    where: { kashierOrderId: orderId },
+  const result = await activatePurchaseByOrderId(orderId);
+  return NextResponse.json({
+    received: true,
+    activated: result.activated,
+    ...(result.activated ? {} : { note: result.reason }),
   });
-  if (!purchase) {
-    return NextResponse.json({ received: true, activated: false, note: "order not found" });
-  }
-  const accessDays = getAccessDays();
-  const expiresAt = new Date(Date.now() + accessDays * 24 * 60 * 60 * 1000);
-  await prisma.purchase.update({
-    where: { id: purchase.id },
-    data: {
-      status: "active",
-      expiresAt,
-      kashierOrderId: orderId,
+}
+
+export async function GET() {
+  return NextResponse.json(
+    {
+      error:
+        "This endpoint accepts POST webhooks only. Set merchantRedirect to /api/checkout/kashier-return",
     },
-  });
-  return NextResponse.json({ received: true, activated: true });
+    { status: 405 }
+  );
 }

@@ -338,14 +338,29 @@
   "checkout": {
     "title": "Checkout",
     "summary": "Order summary",
-    "courseName": "14-Day Smartphone Filmmaker + bonuses",
+    "courseName": "UGC-30 Online Course + bonuses",
     "included": "What's included",
-    "included1": "Full course: 14 days of structured lessons",
+    "included1": "Full UGC-30 course: structured lessons",
     "included2": "Templates and community access (as published)",
     "included3": "Lifetime access for the access window defined at purchase",
     "pay": "Pay with Kashier",
     "kashierNote": "Kashier opens in a secure flow. We store a pending order when you start payment.",
-    "initError": "Could not start checkout. Try again."
+    "initError": "Could not start checkout. Try again.",
+    "result": {
+      "successTitle": "Payment successful",
+      "successBody": "Your course access is ready. You can start learning now.",
+      "pendingTitle": "Confirming your payment",
+      "pendingBody": "Payment was received. We're activating your access — this usually takes a few seconds.",
+      "pendingWait": "Checking status… ({n})",
+      "failedTitle": "Payment not completed",
+      "failedBody": "The payment did not go through. You can try again anytime.",
+      "errorTitle": "Something went wrong",
+      "errorBody": "We couldn't verify this payment return. If you were charged, contact support with your order reference.",
+      "orderRef": "Order reference",
+      "openCourse": "Open course",
+      "openProfile": "Go to profile",
+      "tryAgain": "Back to checkout"
+    }
   },
   "profile": {
     "title": "My profile",

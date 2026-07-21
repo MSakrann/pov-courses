@@ -46,7 +46,9 @@ export async function POST() {
   const mode = process.env.KASHIER_MODE === "live" ? "live" : "test";
   const currency = process.env.NEXT_PUBLIC_KASHIER_CURRENCY || "EGP";
   const amount = process.env.NEXT_PUBLIC_COURSE_PRICE || "1450";
-  const redirect = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/webhooks/kashier`;
+  // Browser return (GET) — never point this at the POST-only webhook.
+  const merchantRedirect = `${(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000").replace(/\/$/, "")}/api/checkout/kashier-return`;
+  const webhookUrl = `${(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000").replace(/\/$/, "")}/api/webhooks/kashier`;
 
   if (!merchantId || !secret) {
     return NextResponse.json(
@@ -81,7 +83,7 @@ export async function POST() {
         "data-currency": currency,
         "data-orderId": kashierOrderId,
         "data-merchantId": merchantId,
-        "data-merchantRedirect": encodeURIComponent(redirect),
+        "data-merchantRedirect": merchantRedirect,
         "data-store": process.env.NEXT_PUBLIC_KASHIER_STORE || "Pov Courses",
         "data-type": "external",
         "data-display": process.env.NEXT_PUBLIC_KASHIER_DISPLAY || "en",
@@ -89,5 +91,7 @@ export async function POST() {
         "data-mode": mode,
       },
     },
+    /** Configure this URL in the Kashier merchant dashboard (server webhook). */
+    webhookUrl,
   });
 }
