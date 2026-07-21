@@ -158,7 +158,7 @@ export function CourseView({ modules, initialLessonId }: Props) {
           <div>
             <h1 className="text-2xl font-extrabold text-ink">{title(current)}</h1>
             <div className="mt-4 max-w-4xl">
-              <VdoPlayer videoId={current.vdoId} />
+              <VdoPlayer key={current.vdoId} videoId={current.vdoId} />
             </div>
           </div>
         )}

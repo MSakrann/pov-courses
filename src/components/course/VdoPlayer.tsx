@@ -12,16 +12,28 @@ export function VdoPlayer({ videoId }: Props) {
 
   useEffect(() => {
     let cancelled = false;
+    setData(null);
+    setError(null);
+
     (async () => {
-      const res = await fetch(`/api/vdocipher/otp?videoId=${encodeURIComponent(videoId)}`);
-      const j = await res.json();
-      if (cancelled) return;
-      if (!res.ok) {
-        setError(String(j.error || "load"));
-        return;
+      try {
+        const res = await fetch(`/api/vdocipher/otp?videoId=${encodeURIComponent(videoId)}`);
+        const j = await res.json();
+        if (cancelled) return;
+        if (!res.ok) {
+          setData(null);
+          setError(String(j.error || "load"));
+          return;
+        }
+        setError(null);
+        setData({ otp: j.otp, playbackInfo: j.playbackInfo ?? null });
+      } catch {
+        if (cancelled) return;
+        setData(null);
+        setError("load");
       }
-      setData({ otp: j.otp, playbackInfo: j.playbackInfo ?? null });
     })();
+
     return () => {
       cancelled = true;
     };
@@ -41,6 +53,7 @@ export function VdoPlayer({ videoId }: Props) {
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-zinc-200 bg-black">
       <iframe
+        key={videoId}
         title="Lesson video"
         className="h-full w-full"
         allow="encrypted-media; autoplay; fullscreen"
