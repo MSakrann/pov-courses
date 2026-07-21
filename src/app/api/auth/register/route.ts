@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import { authCookieBase, createSessionToken } from "@/lib/auth-cookies";
 import { AUTH_COOKIE } from "@/lib/constants";

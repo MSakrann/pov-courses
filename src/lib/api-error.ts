@@ -46,7 +46,7 @@ export function diagnoseServerError(error: unknown): {
     };
   }
 
-  if (/bcrypt|Invalid salt|data and hash/i.test(message)) {
+  if (/bcrypt|Invalid salt|data and hash|No native build was found/i.test(message)) {
     return { status: 500, error: "Password hashing failed", code: "BCRYPT_ERROR" };
   }
 
