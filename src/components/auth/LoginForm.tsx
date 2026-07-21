@@ -26,7 +26,11 @@ export function LoginForm() {
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Error");
+        const detail =
+          typeof data.code === "string" && data.code !== "UNKNOWN"
+            ? ` (${data.code})`
+            : "";
+        setError(`${data.error || "Error"}${detail}`);
         return;
       }
       const access = data.access as

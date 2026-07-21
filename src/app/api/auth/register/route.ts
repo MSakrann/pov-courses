@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { prisma } from "@/lib/prisma";
-import { authCookieBase, setAuthCookie } from "@/lib/auth-cookies";
+import { authCookieBase, createSessionToken } from "@/lib/auth-cookies";
 import { AUTH_COOKIE } from "@/lib/constants";
+import { serverErrorResponse } from "@/lib/api-error";
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,14 +25,13 @@ export async function POST(request: NextRequest) {
     const user = await prisma.user.create({
       data: { name, email, passwordHash, lang: "ar" },
     });
-    const token = await setAuthCookie(user.id, user.email);
+    const token = await createSessionToken(user.id, user.email);
     const response = NextResponse.json({
       user: { id: user.id, name: user.name, email: user.email, lang: user.lang },
     });
     response.cookies.set(AUTH_COOKIE, token, authCookieBase);
     return response;
   } catch (e) {
-    console.error(e);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    return serverErrorResponse(e);
   }
 }

@@ -5,11 +5,17 @@ import { createAuthToken, verifyAuthToken } from "./jwt";
 export const authCookieBase = {
   path: "/",
   httpOnly: true,
-  sameSite: "strict" as const,
+  sameSite: "lax" as const,
   secure: process.env.NODE_ENV === "production",
   maxAge: 60 * 60 * 24 * 7,
 };
 
+/** Create a signed session token (does not touch cookies). */
+export async function createSessionToken(userId: string, email: string) {
+  return createAuthToken(userId, email);
+}
+
+/** @deprecated Prefer createSessionToken + response.cookies.set in route handlers. */
 export async function setAuthCookie(userId: string, email: string) {
   const token = await createAuthToken(userId, email);
   cookies().set(AUTH_COOKIE, token, authCookieBase);
