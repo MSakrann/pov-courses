@@ -116,6 +116,7 @@
     "ugcOfferBanner": {
       "alt": "UGC-30 offer — pricing, bonuses, and course preview"
     },
+    "preFaqCta": "Get Lifetime access — {price}",
     "faq": {
       "title": "Frequently Asked Questions",
       "q1": "Do I need to be at a certain level in terms of skills?",
@@ -382,6 +383,7 @@
     "modules": "Modules",
     "selectLesson": "Select a lesson to begin.",
     "videoLoading": "Loading player…",
-    "images": "Lesson images"
+    "images": "Lesson images",
+    "completed": "Completed"
   }
 }

@@ -349,6 +349,18 @@ export async function LandingSections() {
           />
         </div>
       </section>
+      <section className="bg-black px-6 py-12 sm:px-8 sm:py-14">
+        <div className="mx-auto flex justify-center">
+          <Link
+            href="/checkout"
+            className="flex w-full max-w-[640px] items-center justify-center rounded-full bg-brand-red px-8 py-4 text-center text-[17px] font-extrabold leading-snug text-white shadow-lg transition-opacity hover:opacity-90 sm:px-12 sm:py-[18px] sm:text-lg"
+          >
+            {t("landing.preFaqCta", {
+              price: `${price} ${t("landing.currency")}`,
+            } as { price: string } & Record<string, string>)}
+          </Link>
+        </div>
+      </section>
       <section className="bg-brand-red py-14 sm:py-16">
         <div className="mx-auto max-w-3xl px-4">
           <h3 className="text-center text-3xl font-extrabold text-white sm:text-4xl">
