@@ -44,7 +44,7 @@ function FacebookCard() {
                   alt="Before"
                   className="h-full w-full object-cover"
                 />
-                <span className="absolute start-2 top-2 rounded bg-white/80 px-2 text-xs font-bold text-red-600">
+                <span className="absolute start-2 top-2 rounded bg-white/80 px-2 text-xs font-bold text-brand-red">
                   BEFORE
                 </span>
               </div>

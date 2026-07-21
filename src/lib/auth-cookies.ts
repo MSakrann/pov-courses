@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { AUTH_COOKIE } from "./constants";
 import { createAuthToken, verifyAuthToken } from "./jwt";
 
-const cookieBase = {
+export const authCookieBase = {
   path: "/",
   httpOnly: true,
   sameSite: "strict" as const,
@@ -12,11 +12,12 @@ const cookieBase = {
 
 export async function setAuthCookie(userId: string, email: string) {
   const token = await createAuthToken(userId, email);
-  cookies().set(AUTH_COOKIE, token, cookieBase);
+  cookies().set(AUTH_COOKIE, token, authCookieBase);
+  return token;
 }
 
 export async function clearAuthCookie() {
-  cookies().set(AUTH_COOKIE, "", { ...cookieBase, maxAge: 0 });
+  cookies().set(AUTH_COOKIE, "", { ...authCookieBase, maxAge: 0 });
 }
 
 export async function getSessionFromCookies() {

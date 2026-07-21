@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
+import { useAuthState } from "./AuthStateProvider";
 
 export function LoginForm() {
   const t = useTranslations("auth");
   const router = useRouter();
+  const { refreshAuth } = useAuthState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -36,7 +38,9 @@ export function LoginForm() {
         access?.status === "active" && access?.expiresAt
           ? new Date(access.expiresAt).getTime() > now
           : false;
-      router.push(active ? "/course" : "/checkout");
+      await refreshAuth();
+      router.push(active ? "/profile" : "/checkout");
+      router.refresh();
     } finally {
       setLoading(false);
     }
@@ -45,7 +49,7 @@ export function LoginForm() {
   return (
     <form onSubmit={onSubmit} className="mx-auto w-full max-w-md space-y-4">
       {error && (
-        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+        <p className="rounded-lg bg-brand-red/10 px-3 py-2 text-sm text-brand-red" role="alert">
           {error}
         </p>
       )}
@@ -76,7 +80,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-full bg-brand-green py-3 font-bold text-white disabled:opacity-50"
+        className="w-full rounded-full bg-brand-red py-3 font-bold text-white disabled:opacity-50"
       >
         {t("submitLogin")}
       </button>

@@ -14,7 +14,7 @@ export default async function CheckoutPage({ params: { locale } }: Props) {
     redirect(`/${locale}/login`);
   }
   const t = await getTranslations("checkout");
-  const price = process.env.NEXT_PUBLIC_COURSE_PRICE || "48";
+  const price = process.env.NEXT_PUBLIC_COURSE_PRICE || "1450";
   return (
     <div>
       <Navbar />
@@ -22,7 +22,7 @@ export default async function CheckoutPage({ params: { locale } }: Props) {
         <h1 className="text-3xl font-extrabold text-ink">{t("title")}</h1>
         <div className="mt-8 rounded-2xl border border-zinc-200 bg-brand-gray/40 p-6">
           <h2 className="text-lg font-bold text-ink">{t("summary")}</h2>
-          <p className="mt-2 text-2xl font-extrabold text-brand-red">${price} USD</p>
+          <p className="mt-2 text-2xl font-extrabold text-brand-red">{price} EGP</p>
           <p className="mt-1 font-medium text-ink">{t("courseName")}</p>
           <ul className="mt-4 list-inside list-disc text-sm text-ink/80">
             <li>{t("included1")}</li>

@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 import { routing } from "@/i18n/routing";
+import { AuthStateProvider } from "@/components/auth/AuthStateProvider";
 import { LocaleAttributes } from "@/components/LocaleAttributes";
 
 type Props = {
@@ -20,9 +21,17 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
   }
   setRequestLocale(locale);
   const messages = await getMessages();
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
   return (
-    <NextIntlClientProvider messages={messages}>
-      <LocaleAttributes>{children}</LocaleAttributes>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <LocaleAttributes>
+        <AuthStateProvider>
+          <div dir={dir} className="min-h-screen bg-white">
+            {children}
+          </div>
+        </AuthStateProvider>
+      </LocaleAttributes>
     </NextIntlClientProvider>
   );
 }

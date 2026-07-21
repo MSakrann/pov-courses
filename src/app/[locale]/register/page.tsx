@@ -15,7 +15,7 @@ export default async function RegisterPage({ params: { locale } }: Props) {
     const p = await prisma.purchase.findUnique({ where: { userId: s.sub } });
     const now = Date.now();
     if (p?.status === "active" && p.expiresAt.getTime() > now) {
-      redirect(`/${locale}/course`);
+      redirect(`/${locale}/profile`);
     }
   }
   const t = await getTranslations("auth");

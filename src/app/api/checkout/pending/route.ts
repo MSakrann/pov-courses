@@ -14,8 +14,15 @@ export async function POST() {
   if (!session?.sub) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const kashierOrderId = `ord_${session.sub.slice(0, 8)}_${randomUUID()}`;
   const now = new Date();
+  const existing = await prisma.purchase.findUnique({ where: { userId: session.sub } });
+  if (existing?.status === "active" && existing.expiresAt.getTime() > now.getTime()) {
+    return NextResponse.json(
+      { error: "You already have active access" },
+      { status: 409 }
+    );
+  }
+  const kashierOrderId = `ord_${session.sub.slice(0, 8)}_${randomUUID()}`;
   const placeholderExpiry = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
   const accessDays = getAccessDays();
 
@@ -38,7 +45,7 @@ export async function POST() {
   const secret = process.env.KASHIER_IFRAME_SECRET || process.env.KASHIER_API_KEY || "";
   const mode = process.env.KASHIER_MODE === "live" ? "live" : "test";
   const currency = process.env.NEXT_PUBLIC_KASHIER_CURRENCY || "EGP";
-  const amount = process.env.NEXT_PUBLIC_COURSE_PRICE || "48";
+  const amount = process.env.NEXT_PUBLIC_COURSE_PRICE || "1450";
   const redirect = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/webhooks/kashier`;
 
   if (!merchantId || !secret) {

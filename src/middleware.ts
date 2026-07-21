@@ -6,7 +6,7 @@ const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
   const res = intlMiddleware(request);
-  if (request.nextUrl.pathname.match(/\/(ar|en)\/course/)) {
+  if (request.nextUrl.pathname.match(/\/(ar|en)\/(course|profile)/)) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
   return res;

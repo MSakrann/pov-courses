@@ -1,9 +1,7 @@
-import { getTranslations } from "next-intl/server";
 import { requireCoursePageAccess } from "@/lib/course-access";
 import { prisma } from "@/lib/prisma";
+import { Navbar } from "@/components/Navbar";
 import { CourseView } from "@/components/course/CourseView";
-import { LogoutButton } from "@/components/LogoutButton";
-import { Link } from "@/i18n/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -24,21 +22,9 @@ export default async function CoursePage({ searchParams }: Props) {
       },
     },
   });
-  const t = await getTranslations("course");
-  const tNav = await getTranslations("nav");
   return (
     <div>
-      <header className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-2">
-          <h1 className="text-lg font-extrabold text-ink">{t("title")}</h1>
-          <div className="flex items-center gap-3 text-sm">
-            <Link href="/" className="text-brand-red underline">
-              {tNav("home")}
-            </Link>
-            <LogoutButton />
-          </div>
-        </div>
-      </header>
+      <Navbar />
       <CourseView modules={modules} initialLessonId={lesson} />
     </div>
   );

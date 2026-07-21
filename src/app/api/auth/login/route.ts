@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { prisma } from "@/lib/prisma";
-import { setAuthCookie } from "@/lib/auth-cookies";
+import { authCookieBase, setAuthCookie } from "@/lib/auth-cookies";
+import { AUTH_COOKIE } from "@/lib/constants";
 import { limitLoginRequest } from "@/lib/rate-limit";
 
 function getClientIp(request: NextRequest) {
@@ -31,9 +32,9 @@ export async function POST(request: NextRequest) {
     if (!match) {
       return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
-    await setAuthCookie(user.id, user.email);
+    const token = await setAuthCookie(user.id, user.email);
     const purchase = await prisma.purchase.findUnique({ where: { userId: user.id } });
-    return NextResponse.json({
+    const response = NextResponse.json({
       user: { id: user.id, name: user.name, email: user.email, lang: user.lang },
       access: purchase
         ? {
@@ -42,6 +43,8 @@ export async function POST(request: NextRequest) {
           }
         : null,
     });
+    response.cookies.set(AUTH_COOKIE, token, authCookieBase);
+    return response;
   } catch (e) {
     console.error(e);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

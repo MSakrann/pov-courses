@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { VdoPlayer } from "./VdoPlayer";
 import { ProtectedImageLesson } from "./ProtectedImageLesson";
@@ -52,6 +52,7 @@ export function CourseView({ modules, initialLessonId }: Props) {
     if (flat[0]) return { [flat[0].module.id]: true };
     return {};
   });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const current = flat.find((f) => f.lesson.id === active)?.lesson ?? null;
   const title = (l: Lesson) => (locale === "ar" ? l.title_ar : l.title_en);
@@ -61,11 +62,43 @@ export function CourseView({ modules, initialLessonId }: Props) {
     setOpen((o) => ({ ...o, [moduleId]: true }));
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
-    <div className="flex min-h-screen flex-col bg-white md:flex-row">
-      <aside className="w-full shrink-0 border-e border-zinc-200 bg-brand-gray/40 md:sticky md:top-0 md:h-screen md:max-w-xs md:overflow-y-auto">
-        <div className="p-3">
-          <h2 className="text-lg font-extrabold text-ink">{t("modules")}</h2>
+    <div className="relative flex min-h-screen bg-white">
+      {mobileMenuOpen && (
+        <button
+          type="button"
+          aria-label="Close modules menu"
+          onClick={() => setMobileMenuOpen(false)}
+          className="fixed inset-0 z-30 bg-black/35 md:hidden"
+        />
+      )}
+
+      <aside
+        className={[
+          "fixed inset-y-0 start-0 z-40 w-[86%] max-w-xs bg-white border-e border-zinc-200 transition-transform duration-300",
+          "md:static md:inset-auto md:z-auto md:h-screen md:w-full md:max-w-xs md:translate-x-0 md:overflow-y-auto md:sticky md:top-0",
+          // Off-canvas transforms only below `md`; otherwise rtl:translate-* can override md:translate-x-0 in the cascade.
+          mobileMenuOpen
+            ? "max-md:translate-x-0"
+            : "max-md:ltr:-translate-x-full max-md:rtl:translate-x-full",
+        ].join(" ")}
+      >
+        <div className="flex items-center justify-between border-b border-zinc-200 p-3 md:block md:border-b-0 md:p-0">
+          <h2 className="text-lg font-medium text-ink md:hidden">{t("modules")}</h2>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-sm font-semibold text-ink/70 md:hidden"
+          >
+            ✕
+          </button>
         </div>
         <nav className="p-2">
           {modules
@@ -75,7 +108,7 @@ export function CourseView({ modules, initialLessonId }: Props) {
                 <button
                   type="button"
                   onClick={() => setOpen((o) => ({ ...o, [m.id]: !o[m.id] }))}
-                  className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-start text-sm font-bold text-ink hover:bg-white"
+                  className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-start text-sm font-medium text-ink hover:bg-white"
                 >
                   {mtitle(m)}
                   <span className="text-zinc-400">{open[m.id] ? "−" : "+"}</span>
@@ -91,6 +124,7 @@ export function CourseView({ modules, initialLessonId }: Props) {
                             onClick={() => {
                               setActive(l.id);
                               ensureOpen(m.id);
+                              setMobileMenuOpen(false);
                             }}
                             className={`w-full rounded-lg px-2 py-1.5 text-start text-sm ${
                               active === l.id
@@ -109,6 +143,16 @@ export function CourseView({ modules, initialLessonId }: Props) {
         </nav>
       </aside>
       <main className="min-h-screen flex-1 p-4 md:p-8">
+        <div className="mb-3 md:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm font-semibold text-ink"
+          >
+            <span aria-hidden="true">☰</span>
+            {t("modules")}
+          </button>
+        </div>
         {!current && <p className="text-ink/70">{t("selectLesson")}</p>}
         {current && current.type === "video" && current.vdoId && (
           <div>

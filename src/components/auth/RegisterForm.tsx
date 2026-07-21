@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
+import { useAuthState } from "./AuthStateProvider";
 
 export function RegisterForm() {
   const t = useTranslations("auth");
   const router = useRouter();
+  const { refreshAuth } = useAuthState();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +35,9 @@ export function RegisterForm() {
         setError(data.error || "Error");
         return;
       }
+      await refreshAuth();
       router.push("/checkout");
+      router.refresh();
     } finally {
       setLoading(false);
     }
@@ -42,7 +46,7 @@ export function RegisterForm() {
   return (
     <form onSubmit={onSubmit} className="mx-auto w-full max-w-md space-y-4">
       {error && (
-        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+        <p className="rounded-lg bg-brand-red/10 px-3 py-2 text-sm text-brand-red" role="alert">
           {error}
         </p>
       )}
@@ -95,7 +99,7 @@ export function RegisterForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-full bg-brand-green py-3 font-bold text-white disabled:opacity-50"
+        className="w-full rounded-full bg-brand-red py-3 font-bold text-white disabled:opacity-50"
       >
         {t("submitRegister")}
       </button>

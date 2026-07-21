@@ -63,12 +63,12 @@ export function KashierPanel() {
         type="button"
         onClick={start}
         disabled={loading}
-        className="w-full rounded-full bg-brand-green py-3 font-bold text-white disabled:opacity-50"
+        className="w-full rounded-full bg-brand-red py-3 font-bold text-white disabled:opacity-50"
       >
         {t("pay")}
         {loading ? "…" : ""}
       </button>
-      {err && <p className="text-sm text-red-600">{err}</p>}
+      {err && <p className="text-sm text-brand-red">{err}</p>}
       {orderId && iframeConfig && (
         <div className="space-y-2 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-sm text-ink/80">
           <p>

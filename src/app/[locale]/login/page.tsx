@@ -11,7 +11,7 @@ type Props = { params: { locale: string } };
 export default async function LoginPage({ params: { locale } }: Props) {
   const access = await getCourseAccess();
   if (access.ok) {
-    redirect(`/${locale}/course`);
+    redirect(`/${locale}/profile`);
   }
   const t = await getTranslations("auth");
   return (

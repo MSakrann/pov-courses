@@ -4,10 +4,11 @@
     "description": "Master smartphone filmmaking and editing in 14 days. Lifetime access, bilingual Arabic & English."
   },
   "common": {
-    "brand": "Pov Studio",
-    "getAccess": "Get Access Today!",
+    "brand": "POV",
+    "getAccess": "Get Lifetime Access Today!",
     "login": "Login",
-    "register": "Create account"
+    "register": "Create account",
+    "account": "My account"
   },
   "nav": {
     "home": "Home",
@@ -15,16 +16,16 @@
     "checkout": "Checkout"
   },
   "landing": {
-    "topBar": "🔥 <highlight>Limited time sale</highlight>— full bundle at a special price.",
-    "heroH1": "Master Smartphone Filmmaking & Editing",
-    "heroSubPrefix": "Spring Sale Bonuses:",
-    "heroSubRest": "Master Youtube, Viral Editing, Profitable Scriptwriting, and more!",
-    "heroFor": "For anyone who wants to shoot cinematic, emotional video on a phone—without months of random tutorials.",
+    "topBar": "For the first time in <highlight>Egypt..</highlight>",
+    "heroH1": "Learn & Master UGC and get paid for it in Less than 30 Days",
+    "heroSubPrefix": "16 additional bonuses:",
+    "heroSubRest": "Master UGC and make money in less than 30 days!",
+    "heroFor": "The UGC-30 online course is for anyone who wants to be a UGC and get paid by brands in exchange for content consistently in less than 30 days. Enjoy additional templates, webinars, simulators, checklists, scripts.<br></br>Get lifelong discounts on POV products at ZERO extra costs.<br> </br> (originally 7,000 EGP).<br></br>Offer expires soon.",
     "heroSale": "Get 5 additional programs at no extra cost with this launch bundle.",
-    "heroExpires": "Offer ends soon. Secure your seat while this page is open.",
+    "heroExpires": "Offer ends soon. get yours now.",
     "normalPrice": "Normal price",
     "yourPrice": "Your price",
-    "currency": "USD",
+    "currency": "EGP",
     "countdownTitle": "Offer countdown",
     "socialProof": "Trusted by {count}+ content creators",
     "bundle": {
@@ -32,12 +33,105 @@
       "bigSale": "HUGE {season} SALE BUNDLE",
       "season": "Spring",
       "today": "Today",
-      "valueBadge": "VALUE {amount}"
+      "valueBadge": "VALUE {amount}",
+      "promoImageAlt": "Spring sale bundle offer"
     },
     "courseBlock": {
       "label": "Course #1:",
-      "courseName": "14-Day Smartphone Filmmaker",
-      "whatYouLearn": "Here's what you will learn"
+      "courseName": "The UGC-30 Online Course",
+      "whatYouLearn": "This full online course will teach you all about:",
+      "showcaseImageAlt": "Course overview — modules, devices, and lessons",
+      "afterModulesImageAlt": "Bonuses and programs included with the course"
+    },
+    "bonusPrograms": {
+      "cards": [
+        {
+          "title": "Three additional bonuses for free",
+          "imageAlt": "Three additional bonuses for free in this course",
+          "bullets": [
+            "Learn how to create a=professional Media Kits for yourself.",
+            "Learn how to price your services and how to create professional Rate Cards.",
+            "Learn how to reach out for brands and how to track your efforts."
+          ]
+        },
+        {
+          "title": "Three additional bonuses for free",
+          "imageAlt": "Three additional bonuses for free in this course",
+          "bullets": [
+            "Learn how to kick off your start as a UGC creator in 30 details day by day.",
+            "Learn how to understand brand briefs by simulating real ones and practice it.",
+            "Learn how to accurately and effectively evaluate your videos and how do they perform."
+          ]
+        },
+        {
+          "title": "Two additional bonuses for free",
+          "imageAlt": "Two additional bonuses for free in this course",
+          "bullets": [
+            "Learn hwo to get access to a lifelong discount of 10% on all content tools from POV's official website.",
+            "Learn how to analyze and reverse engineer content pieces."
+          ]
+        }
+      ]
+    },
+    "whoFor": {
+      "title": "Who is this online course for",
+      "item1": "This online course is for people who are committed to starting their content creation journey the right way.",
+      "item2": "This online course is for creators who are sick of being low-balled and skipped by brands.",
+      "item3": "This online course is for creators who are willing to bring in 50,000 EGP or 100,000 EGP in active monthly income from content.",
+      "item4": "This online course is for creators who are really passionate to someday travel the world creating content for brands.",
+      "item5": "This online course is for creators who want to build communities of active people that trust them."
+    },
+    "whoNeed": {
+      "title": "Who are the creators that need this ?",
+      "item1": "Creators who have been posting non stop but see no results.",
+      "item2": "Creators who are passionate about content but find it so difficult to do so.",
+      "item3": "Creators who fail to monetize because they think they are so small.",
+      "item4": "Creators who are committed but can't present themselves properly to brands.",
+      "item5": "Creators who want to never work a 9-5 ever again.",
+      "item6": "Creators who believe content can change their lives."
+    },
+    "whoNotFor": {
+      "title": "Who is this online course not for",
+      "item1": "This online course is not for people who are drowning in instant gratification. This is designed for progress, not for low quality output.",
+      "item2": "This online course is not for for people who are skeptical, condescending and/or inconsistent negatively impacting the community.",
+      "item3": "This online course is not for people who lack motivation to post, passion to create and/or commitment to stay consistent."
+    },
+    "creatorsSection": {
+      "title": "Meet the creators behind this online course",
+      "imageAlt": "Creators behind the online course",
+      "p1": "Heyy! We are the team behind POV. A team that has been crazy about content ever since this company was born.",
+      "p2": "We have been studying, researching, teaching, preaching, and practicing the art of creating content for the past 3 years. We have created multiple products that best help content up their content creation game.",
+      "p3": "We have dealt closely with tens of thousands of content creators including nano creators, micro creators, macro influencers, mega influencers, celebrities, and UGC creators and have seen very much up close how they monetize and make a living for themselves.",
+      "p4": "Recently, we decided that we want to help everyone learn how to start creating content and monetize off of their content consistently month in & month out in less than in 90 days.",
+      "p5": "We can help you change your life forever and never ever need to work a 9-5 out of desperate financial need again."
+    },
+    "teachingPreview": {
+      "title": "Want a preview of our teaching style?",
+      "subtitle": "Here you go!",
+      "iframeTitle": "Video preview of our teaching style"
+    },
+    "springSaleStrip": {
+      "cta": "Enroll in the spring sale deal for only {price}"
+    },
+    "ugcOfferBanner": {
+      "alt": "UGC-30 offer — pricing, bonuses, and course preview"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "Do I need to be at a certain level in terms of skills?",
+      "a1": "You do not need any kind of skills, but you need t bring hunger and commitment.",
+      "q2": "How can I trust POV?",
+      "a2": "We are an Egyptian fully licensed enterprise that has served more than 135,000 people and an over 1M USD in sales revenue.",
+      "q3": "Will I need to pay for anything else rather than this one-time payment?",
+      "a3": "For all the value that you're getting and all the results that you'll see, we charge zero more EGPs.",
+      "q4": "How is this different than anything else that is free online?",
+      "a4": "We specialize in this. What is different is the mentorship, the details, the community, the customization and the tools we offer you.",
+      "q5": "How long will it take me to see results?",
+      "a5": "This is not magic. It's not empty promises. If you commit 100%, it will get you to active monthly income in less than 90 days.",
+      "q6": "For how long do I have access to mentorship? Is it forever?",
+      "a6": "You get access for as long as this system and program is alive.",
+      "q7": "Will I need to buy expensive equipments, tools & gadgets?",
+      "a7": "No, but even if you wanted to, you will have 10% discount on all content creation tools sold by POV."
     },
     "midCta": "Claim this deal for only {price}",
     "testimonialsH2": "What some of our <count>152,000+</count> students have to say",
@@ -46,10 +140,186 @@
       "copy": "© {year} {brand}. All rights reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms"
+    },
+    "saleBonuses": {
+      "sectionTitle": "17 assets in this course:",
+      "afterRowsImageAlt": "Spring sale bonuses — full width graphic",
+      "rows": [
+        {
+          "title": "1-Hour Long Online Course",
+          "imageAlt": "1-hour online course — full UGC-30 bonus",
+          "bullets": [
+            "Full video course explaining the entire UGC30 system in detail.",
+            "Step-by-step guidance so you never feel lost.",
+            "Designed to kickstart your journey as a UGC creator.",
+            "Perfect for beginners and aspiring creators."
+          ]
+        },
+        {
+          "title": "Live Webinars with Experts",
+          "imageAlt": "Live webinars with industry experts — bonus",
+          "bullets": [
+            "Learn directly from industry professionals.",
+            "Get actionable advice every month.",
+            "Stay updated with trends and strategies.",
+            "Ask questions and get real insights."
+          ]
+        },
+        {
+          "title": "Brand Deal Tracker",
+          "imageAlt": "Brand deal tracker — bonus",
+          "bullets": [
+            "Track all your outreach and brand deals.",
+            "Organize conversations in one place.",
+            "Monitor your progress easily.",
+            "Build a consistent income system."
+          ]
+        },
+        {
+          "title": "Self-Review Scorecard",
+          "imageAlt": "Self-review scorecard — bonus",
+          "bullets": [
+            "Evaluate your content like a professional.",
+            "Identify strengths and areas to improve.",
+            "Improve your videos with every post.",
+            "Maintain consistent quality."
+          ]
+        },
+        {
+          "title": "Analytics Guide",
+          "imageAlt": "Analytics guide — bonus",
+          "bullets": [
+            "Understand your performance metrics easily.",
+            "Identify what works and what doesn't.",
+            "Improve content based on real data.",
+            "Turn insights into growth."
+          ]
+        },
+        {
+          "title": "Seasonal Brand Calendar",
+          "imageAlt": "Seasonal brand calendar — bonus",
+          "bullets": [
+            "Know when brands are actively spending.",
+            "Plan your content ahead of time.",
+            "Target the right opportunities at the right time.",
+            "Stay ahead of the competition."
+          ]
+        },
+        {
+          "title": "Brief Simulator",
+          "imageAlt": "Brief simulator — bonus",
+          "bullets": [
+            "Practice working with real brand briefs.",
+            "Learn how to meet brand expectations.",
+            "Build confidence before real deals.",
+            "Avoid common beginner mistakes."
+          ]
+        },
+        {
+          "title": "Outreach Scripts (English & Arabic)",
+          "imageAlt": "Outreach scripts in English and Arabic — bonus",
+          "bullets": [
+            "Ready-to-send messages for DMs and emails.",
+            "Increases reply rates significantly.",
+            "Saves time and effort.",
+            "Helps you sound professional instantly."
+          ]
+        },
+        {
+          "title": "The Monetization Pathway",
+          "imageAlt": "Monetization pathway — bonus",
+          "bullets": [
+            "Clear roadmap from beginner to paid creator.",
+            "Step-by-step system to start earning.",
+            "Removes confusion.",
+            "Designed for fast and realistic results."
+          ]
+        },
+        {
+          "title": "56-Page Detailed PDF Guide",
+          "imageAlt": "56-page detailed PDF guide — bonus",
+          "bullets": [
+            "Covers every component of the system in depth.",
+            "Includes 7 structured modules for easy learning.",
+            "Clear roadmap from start to monetization.",
+            "Easy to follow and revisit anytime."
+          ]
+        },
+        {
+          "title": "List of 300+ Egyptian Local Brands",
+          "imageAlt": "List of 300+ Egyptian local brands — bonus",
+          "bullets": [
+            "Ready for immediate outreach and collaboration.",
+            "Saves you hours of searching for opportunities.",
+            "Includes brands open to working with creators.",
+            "Helps you start monetizing faster."
+          ]
+        },
+        {
+          "title": "Cold Outreach Resources",
+          "imageAlt": "Cold outreach resources — bonus",
+          "bullets": [
+            "Ready-to-use methods to contact brands easily.",
+            "Helps you approach brands with confidence.",
+            "Increases your chances of getting replies.",
+            "Removes the guesswork from pitching."
+          ]
+        },
+        {
+          "title": "100+ Hooks (Arabic & English)",
+          "imageAlt": "100+ hooks in Arabic and English — bonus",
+          "bullets": [
+            "Ready-to-use hooks to boost engagement.",
+            "Proven formats used in viral content.",
+            "Works for TikTok, Reels, and ads.",
+            "Simple copy, paste, and adapt system."
+          ]
+        },
+        {
+          "title": "10% Lifelong Discount",
+          "imageAlt": "10% lifelong discount — bonus",
+          "bullets": [
+            "Exclusive discount on all content tools & equipment.",
+            "Save money while upgrading your setup.",
+            "Valid on all future purchases.",
+            "Supports your long-term creator journey."
+          ]
+        },
+        {
+          "title": "5+ Media Kit Templates",
+          "imageAlt": "5+ media kit templates — bonus",
+          "bullets": [
+            "Multiple professional designs to choose from.",
+            "Ready to use instantly.",
+            "Present your analytics in a clean, professional way.",
+            "Helps you stand out to brands."
+          ]
+        },
+        {
+          "title": "5+ Rate Card Templates",
+          "imageAlt": "5+ rate card templates — bonus",
+          "bullets": [
+            "Different styles tailored for various niches.",
+            "Clearly present your pricing professionally.",
+            "Makes brand negotiations easier.",
+            "Saves time and avoids confusion."
+          ]
+        },
+        {
+          "title": "Exclusive Creator Community Access",
+          "imageAlt": "Exclusive creator community access — bonus",
+          "bullets": [
+            "Connect with like-minded creators.",
+            "Share ideas, feedback, and experiences.",
+            "Learn from others in the same journey.",
+            "Stay motivated and consistent."
+          ]
+        }
+      ]
     }
   },
   "curriculum": {
-    "dayLabel": "Day {n}:"
+    "dayLabel": "Module {n}:"
   },
   "auth": {
     "email": "Email",
@@ -62,7 +332,8 @@
     "submitRegister": "Register",
     "toRegister": "No account? Register",
     "toLogin": "Already have an account? Login",
-    "passwordMismatch": "Passwords do not match"
+    "passwordMismatch": "Passwords do not match",
+    "logout": "Log out"
   },
   "checkout": {
     "title": "Checkout",
@@ -75,6 +346,21 @@
     "pay": "Pay with Kashier",
     "kashierNote": "Kashier opens in a secure flow. We store a pending order when you start payment.",
     "initError": "Could not start checkout. Try again."
+  },
+  "profile": {
+    "title": "My profile",
+    "accountDetails": "Account details",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "yourCourses": "Purchased courses",
+    "noEnrollment": "You don't have any purchases yet.",
+    "courseAccessUntil": "Access until {date}",
+    "badgeActive": "Active",
+    "badgePending": "Payment pending",
+    "badgeInactive": "Inactive",
+    "continueCourse": "Open course",
+    "goCheckout": "Go to checkout",
+    "finishPayment": "Complete payment"
   },
   "course": {
     "title": "Your course",

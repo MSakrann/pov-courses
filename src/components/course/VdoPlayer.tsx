@@ -28,12 +28,12 @@ export function VdoPlayer({ videoId }: Props) {
   }, [videoId]);
 
   if (error) {
-    return <p className="text-sm text-red-600">{error}</p>;
+    return <p className="text-sm text-brand-red">{error}</p>;
   }
   if (!data) {
     return <p className="text-ink/70">{t("videoLoading")}</p>;
   }
-  const src = new URL("https://player.vdocipher.com/v2");
+  const src = new URL("https://player.vdocipher.com/v2/");
   src.searchParams.set("otp", data.otp);
   if (data.playbackInfo) {
     src.searchParams.set("playbackInfo", data.playbackInfo);

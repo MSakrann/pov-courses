@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          red: "#E8341C",
+          red: "#EC750C",
           green: "#4CAF50",
           navy: "#2D3E50",
           gray: "#F5F5F5",
@@ -20,8 +20,8 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-        arabic: ["var(--font-cairo)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-clash)", "ui-sans-serif", "system-ui", "sans-serif"],
+        arabic: ["var(--font-clash)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },
